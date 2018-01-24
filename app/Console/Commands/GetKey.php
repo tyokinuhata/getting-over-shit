@@ -27,8 +27,14 @@ class GetKey extends Command {
      */
     public function handle() {
         $url =  'https://github.com/';
-        $user = 'ymgn';
-        $key = file_get_contents($url . $user . '.keys');
-        print $key;
+
+        for ($i = 0; $i < 26; $i++) {
+            $user =  chr(97 + $i);
+            if ($key = @file_get_contents($url . $user . '.keys')) {
+                echo $this->info('Success!');
+            } else {
+                echo $http_response_header[5] . "\n";
+            }
+        }
     }
 }
