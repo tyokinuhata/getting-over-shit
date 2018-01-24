@@ -26,6 +26,9 @@ class GetKey extends Command {
      * @return void
      */
     public function handle() {
-        print 'hoge';
+        $url =  'https://github.com/';
+        $user = 'ymgn';
+        $key = file_get_contents($url . $user . '.keys');
+        print $key;
     }
 }
