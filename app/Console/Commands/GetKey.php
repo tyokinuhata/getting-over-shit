@@ -32,15 +32,18 @@ class GetKey extends Command {
         for ($i = 0; $i < 26; $i++) {
             $user =  chr(97 + $i);
             if ($response = @file_get_contents($url . $user . '.keys')) {
+                $response = str_replace("\n", ' ', $response);
                 $response = explode(' ', $response);
-                DB::table('ssh_keys')->insert([
-                    'key' => $response[1],
-                    'type' => $response[0]
-                ]);
+                for ($j = 0; $j < count($response) - 1; $j += 2) {
+                    DB::table('ssh_keys')->insert([
+                        'key' => $response[$j],
+                        'type' => $response[$j + 1]
+                    ]);
+                }
                 echo $this->info("[{$i}] Success!");
             } else {
                 echo "[{$i}] {$http_response_header[5]}\n";
             }
         }
     }
-}ß
+}
