@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 class GetKey extends Command {
 
@@ -31,6 +32,7 @@ class GetKey extends Command {
         for ($i = 0; $i < 26; $i++) {
             $user =  chr(97 + $i);
             if ($key = @file_get_contents($url . $user . '.keys')) {
+                DB::table('ssh_keys')->insert([ 'keys' => $key ]);
                 echo $this->info('Success!');
             } else {
                 echo $http_response_header[5] . "\n";
