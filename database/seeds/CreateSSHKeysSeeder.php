@@ -12,7 +12,8 @@ class CreateSSHKeysSeeder extends Seeder
     public function run()
     {
         DB::table('ssh_keys')->insert([
-            'keys' => 'test key'
+            'key' => 'test key',
+            'type' => 'test type'
         ]);
     }
 }

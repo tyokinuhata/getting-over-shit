@@ -31,10 +31,12 @@ class GetKey extends Command {
 
         for ($i = 0; $i < 26; $i++) {
             $user =  chr(97 + $i);
-            if ($key = @file_get_contents($url . $user . '.keys')) {
-                $key = explode(' ', $key);
-                $key = $key[1];
-                DB::table('ssh_keys')->insert([ 'keys' => $key ]);
+            if ($response = @file_get_contents($url . $user . '.keys')) {
+                $response = explode(' ', $response);
+                DB::table('ssh_keys')->insert([
+                    'key' => $response[1],
+                    'type' => $response[0]
+                ]);
                 echo $this->info('Success!');
             } else {
                 echo $http_response_header[5] . "\n";
