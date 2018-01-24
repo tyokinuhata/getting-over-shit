@@ -37,10 +37,10 @@ class GetKey extends Command {
                     'key' => $response[1],
                     'type' => $response[0]
                 ]);
-                echo $this->info('Success!');
+                echo $this->info("[{$i}] Success!");
             } else {
-                echo $http_response_header[5] . "\n";
+                echo "[{$i}] {$http_response_header[5]}\n";
             }
         }
     }
-}
+}ß
