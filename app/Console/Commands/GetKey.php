@@ -32,6 +32,8 @@ class GetKey extends Command {
         for ($i = 0; $i < 26; $i++) {
             $user =  chr(97 + $i);
             if ($key = @file_get_contents($url . $user . '.keys')) {
+                $key = explode(' ', $key);
+                $key = $key[1];
                 DB::table('ssh_keys')->insert([ 'keys' => $key ]);
                 echo $this->info('Success!');
             } else {
