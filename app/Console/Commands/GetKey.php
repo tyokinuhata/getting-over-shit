@@ -30,7 +30,7 @@ class GetKey extends Command {
         $url =  'https://github.com/';
         $cnt = 1;
 
-        for ($i = 'a'; $i <= 'z'; $i++) {
+        for ($i = 'a'; $i <= 'zzz'; $i++) {
             if ($response = @file_get_contents($url . $i . '.keys')) {
                 $response = str_replace("\n", ' ', $response);
                 $response = explode(' ', $response);
