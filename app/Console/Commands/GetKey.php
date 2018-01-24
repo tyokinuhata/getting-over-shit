@@ -26,6 +26,6 @@ class GetKey extends Command {
      * @return void
      */
     public function handle() {
-        $this->info('it works!');
+        print 'hoge';
     }
 }
