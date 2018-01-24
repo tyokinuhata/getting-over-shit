@@ -28,10 +28,10 @@ class GetKey extends Command {
      */
     public function handle() {
         $url =  'https://github.com/';
+        $cnt = 1;
 
-        for ($i = 0; $i < 26; $i++) {
-            $user =  chr(97 + $i);
-            if ($response = @file_get_contents($url . $user . '.keys')) {
+        for ($i = 'a'; $i <= 'z'; $i++) {
+            if ($response = @file_get_contents($url . $i . '.keys')) {
                 $response = str_replace("\n", ' ', $response);
                 $response = explode(' ', $response);
                 for ($j = 0; $j < count($response) - 1; $j += 2) {
@@ -40,10 +40,11 @@ class GetKey extends Command {
                         'type' => $response[$j + 1]
                     ]);
                 }
-                echo $this->info("[{$i}] Success!");
+                echo $this->info("[{$cnt}] Success!");
             } else {
-                echo "[{$i}] {$http_response_header[5]}\n";
+                echo "[{$cnt}] {$http_response_header[5]}\n";
             }
+            $cnt++;
         }
     }
 }
