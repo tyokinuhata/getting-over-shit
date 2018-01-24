@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class CreateSSHKeysSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call('CreateSSHKeysSeeder');
+        DB::table('ssh_keys')->insert([
+            'keys' => 'test key'
+        ]);
     }
 }
