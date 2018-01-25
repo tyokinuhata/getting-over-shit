@@ -25,12 +25,12 @@ DB_CONNECTION=sqlite
 
 |name|description|
 |:--|:--|
-|php artisan get:key|Get the ssh public keys from GitHub to local DB.|
+|php artisan get:key|Get the SSH public keys from GitHub to local DB.|
 
 # Response
 
 |response|description|
 |:--|:--|
-|Success!||
-|Status: 200 OK|Found the account, but not found the ssh public keys.|
+|Success!|Successful for get the SSH public keys.|
+|Status: 200 OK|Found the account, but not found the SSH public keys.|
 |Status: 404 Not Found|Not found the account.|
