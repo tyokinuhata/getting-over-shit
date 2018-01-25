@@ -5,6 +5,7 @@ console
 ```
 $ composer i
 $ cp .env.example .env
+$ touch database/database.sqlite
 ```
 
 .env
@@ -24,4 +25,12 @@ DB_CONNECTION=sqlite
 
 |name|description|
 |:--|:--|
-|php artisan get:key|Get the ssh public key from GitHub to local DB.|
+|php artisan get:key|Get the ssh public keys from GitHub to local DB.|
+
+# Response
+
+|response|description|
+|:--|:--|
+|Success!||
+|Status: 200 OK|Found the account, but not found the ssh public keys.|
+|Status: 404 Not Found|Not found the account.|
