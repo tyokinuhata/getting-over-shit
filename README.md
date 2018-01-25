@@ -1,4 +1,4 @@
-# Build & Set up
+# :wrench: Build & Set up
 
 console
 
@@ -21,13 +21,13 @@ DB_CONNECTION=sqlite
 ...
 ```
 
-# Commands
+# :computer: Commands
 
 |name|description|
 |:--|:--|
 |php artisan get:key|Get the SSH public keys from GitHub to local DB.|
 
-# Response
+# :key: Response of *get:key*
 
 |response|description|
 |:--|:--|
