@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Console\Commands\GetKey;
+use App\Console\Commands\CheckKey;
 
 class CommandServiceProvider extends ServiceProvider {
 
@@ -19,6 +20,14 @@ class CommandServiceProvider extends ServiceProvider {
 
         $this->commands(
             'command.get.key'
+        );
+
+        $this->app->singleton('command.check.key', function () {
+            return new CheckKey;
+        });
+
+        $this->commands(
+            'command.check.key'
         );
     }
 }
