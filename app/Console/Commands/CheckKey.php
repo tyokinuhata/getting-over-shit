@@ -19,7 +19,7 @@ class CheckKey extends Command {
      *
      * @var string
      */
-    protected $description = 'Check ssh keys from GitHub.';
+    protected $description = 'Check the ssh public keys from GitHub.';
 
     /**
      * Execute the console command.

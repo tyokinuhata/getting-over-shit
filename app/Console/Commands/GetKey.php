@@ -19,7 +19,7 @@ class GetKey extends Command {
      *
      * @var string
      */
-    protected $description = 'Get ssh keys from GitHub.';
+    protected $description = 'Get the ssh public keys from GitHub.';
 
     /**
      * Execute the console command.
