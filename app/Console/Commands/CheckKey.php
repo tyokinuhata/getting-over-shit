@@ -34,6 +34,7 @@ class CheckKey extends Command {
             'ssh-dss' => 0,
             'ecdsa-sha2-nistp256' => 0,
             'ecdsa-sha2-nistp384' => 0,
+            'ecdsa-sha2-nistp521' => 0,
             'ssh-ed25519' => 0,
             'etc' => 0
         ];
@@ -51,6 +52,9 @@ class CheckKey extends Command {
                 case 'ecdsa-sha2-nistp384':
                     $cnt['ecdsa-sha2-nistp384']++;
                     break;
+                case 'ecdsa-sha2-nistp521':
+                    $cnt['ecdsa-sha2-nistp521']++;
+                    break;
                 case 'ssh-ed25519':
                     $cnt['ssh-ed25519']++;
                     break;
@@ -66,6 +70,7 @@ class CheckKey extends Command {
         CheckKey::format('ssh-dss', $cnt['ssh-dss'], $length, $precision);
         CheckKey::format('ecdsa-sha2-nistp256', $cnt['ecdsa-sha2-nistp256'], $length, $precision);
         CheckKey::format('ecdsa-sha2-nistp384', $cnt['ecdsa-sha2-nistp384'], $length, $precision);
+        CheckKey::format('ecdsa-sha2-nistp521', $cnt['ecdsa-sha2-nistp521'], $length, $precision);
         CheckKey::format('ssh-ed25519', $cnt['ssh-ed25519'], $length, $precision);
     }
 
