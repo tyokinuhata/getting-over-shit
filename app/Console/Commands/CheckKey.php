@@ -56,11 +56,14 @@ class CheckKey extends Command {
             }
         }
 
-        CheckKey::format('ssh-rsa', $cnt['ssh-rsa'], $max - 1, 2);
-        CheckKey::format('ssh-dss', $cnt['ssh-dss'], $max - 1, 2);
-        CheckKey::format('ecdsa-sha2-nistp256', $cnt['ecdsa-sha2-nistp256'], $max - 1, 2);
-        CheckKey::format('ecdsa-sha2-nistp384', $cnt['ecdsa-sha2-nistp384'], $max - 1, 2);
-        CheckKey::format('ssh-ed25519', $cnt['ssh-ed25519'], $max - 1, 2);
+        $length = $max - 1;
+        $precision = 2;
+
+        CheckKey::format('ssh-rsa', $cnt['ssh-rsa'], $length, $precision);
+        CheckKey::format('ssh-dss', $cnt['ssh-dss'], $length, $precision);
+        CheckKey::format('ecdsa-sha2-nistp256', $cnt['ecdsa-sha2-nistp256'], $length, $precision);
+        CheckKey::format('ecdsa-sha2-nistp384', $cnt['ecdsa-sha2-nistp384'], $length, $precision);
+        CheckKey::format('ssh-ed25519', $cnt['ssh-ed25519'], $length, $precision);
     }
 
     private static function format($type, $cnt, $length, $precision) {
