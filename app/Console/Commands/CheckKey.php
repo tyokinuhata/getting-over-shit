@@ -64,6 +64,6 @@ class CheckKey extends Command {
     }
 
     private static function format($type, $cnt, $length, $precision) {
-        echo $type . ': ' . round($cnt / $length * 100, $precision) . "%\n";
+        echo $type . ': ' . $cnt . ' ' . round($cnt / $length * 100, $precision) . "%\n";
     }
 }
