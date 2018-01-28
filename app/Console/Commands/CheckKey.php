@@ -56,10 +56,14 @@ class CheckKey extends Command {
             }
         }
 
-        echo 'ssh-rsa: ' . round($cnt['ssh-rsa'] / ($max - 1) * 100, 2) . "%\n";
-        echo 'ssh-dss: ' . round($cnt['ssh-dss'] / ($max - 1) * 100, 2) . "%\n";
-        echo 'ecdsa-sha2-nistp256: ' . round($cnt['ecdsa-sha2-nistp256'] / ($max - 1) * 100, 2) . "%\n";
-        echo 'ecdsa-sha2-nistp384: ' . round($cnt['ecdsa-sha2-nistp384'] / ($max - 1) * 100, 2) . "%\n";
-        echo 'ssh-ed25519: ' . round($cnt['ssh-ed25519'] / ($max - 1) * 100) . "%\n";
+        CheckKey::format('ssh-rsa', $cnt['ssh-rsa'], $max - 1, 2);
+        CheckKey::format('ssh-dss', $cnt['ssh-dss'], $max - 1, 2);
+        CheckKey::format('ecdsa-sha2-nistp256', $cnt['ecdsa-sha2-nistp256'], $max - 1, 2);
+        CheckKey::format('ecdsa-sha2-nistp384', $cnt['ecdsa-sha2-nistp384'], $max - 1, 2);
+        CheckKey::format('ssh-ed25519', $cnt['ssh-ed25519'], $max - 1, 2);
+    }
+
+    private static function format($type, $cnt, $length, $precision) {
+        echo $type . ': ' . round($cnt / $length * 100, $precision) . "%\n";
     }
 }
