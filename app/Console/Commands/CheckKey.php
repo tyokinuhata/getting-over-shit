@@ -34,7 +34,8 @@ class CheckKey extends Command {
             'ssh-dss' => 0,
             'ecdsa-sha2-nistp256' => 0,
             'ecdsa-sha2-nistp384' => 0,
-            'ssh-ed25519' => 0
+            'ssh-ed25519' => 0,
+            'etc' => 0
         ];
         for ($i = 1; $i <= $max - 1; $i++) {
             switch ($response[$i]->key) {
@@ -53,10 +54,12 @@ class CheckKey extends Command {
                 case 'ssh-ed25519':
                     $cnt['ssh-ed25519']++;
                     break;
+                default:
+                    $cnt['etc']++;
             }
         }
 
-        $length = $max - 1;
+        $length = $max - 1 - $cnt['etc'];
         $precision = 2;
 
         CheckKey::format('ssh-rsa', $cnt['ssh-rsa'], $length, $precision);
